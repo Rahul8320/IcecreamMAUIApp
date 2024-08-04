@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IcecreamMAUI", "IcecreamMAUI\IcecreamMAUI.csproj", "{5627324A-C423-4010-AB90-BB108F08589D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcecreamMAUI.Api", "IcecreamMAUI.Api\IcecreamMAUI.Api.csproj", "{68C85BEB-4599-4DBA-AFA9-3354C10138F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IcecreamMAUI.Shared", "IcecreamMAUI.Shared\IcecreamMAUI.Shared.csproj", "{5E03F822-FE1D-4720-BBCD-0DEFEA6B3E7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5627324A-C423-4010-AB90-BB108F08589D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5627324A-C423-4010-AB90-BB108F08589D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5627324A-C423-4010-AB90-BB108F08589D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5627324A-C423-4010-AB90-BB108F08589D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5627324A-C423-4010-AB90-BB108F08589D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5627324A-C423-4010-AB90-BB108F08589D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{68C85BEB-4599-4DBA-AFA9-3354C10138F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68C85BEB-4599-4DBA-AFA9-3354C10138F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68C85BEB-4599-4DBA-AFA9-3354C10138F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68C85BEB-4599-4DBA-AFA9-3354C10138F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E03F822-FE1D-4720-BBCD-0DEFEA6B3E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E03F822-FE1D-4720-BBCD-0DEFEA6B3E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E03F822-FE1D-4720-BBCD-0DEFEA6B3E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E03F822-FE1D-4720-BBCD-0DEFEA6B3E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB5E81F5-35A0-4ADE-A59C-B9845CF7F3D5}
+	EndGlobalSection
+EndGlobal
