@@ -10,7 +10,8 @@
     Title="IcecreamMAUI">
 
     <Shell.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="DeepPink"/>
+        <toolkit:StatusBarBehavior StatusBarColor="DeepPink"
+                                   StatusBarStyle="LightContent"/>
     </Shell.Behaviors>
 
     <!--<ShellContent
@@ -65,7 +66,11 @@
                        Grid.Column="2"
                        WidthRequest="24"
                        HeightRequest="24"
-                       Source="right_arrow"/>
+                       Source="right_arrow">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="DeepPink"/>
+                    </Image.Behaviors>
+                </Image>
                 <BoxView Grid.Row="1"
                          Grid.ColumnSpan="3"
                          HeightRequest="1"
@@ -83,7 +88,11 @@
                     Grid.Column="0"
                     WidthRequest="24"
                     HeightRequest="24"
-                    Source="{Binding Icon}"/>
+                    Source="{Binding Icon}">
+                    <Image.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="DeepPink"/>
+                    </Image.Behaviors>
+                </Image>
                 <Label
                     Grid.Column="1"
                     Text="{Binding Text}"
