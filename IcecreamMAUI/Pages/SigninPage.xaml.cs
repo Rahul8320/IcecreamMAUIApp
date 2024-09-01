@@ -6,4 +6,9 @@ public partial class SigninPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	private async void GoToApp(object sender, EventArgs e)
+	{
+		await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+	}
 }

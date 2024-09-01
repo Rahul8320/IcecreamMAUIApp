@@ -28,15 +28,13 @@
         </VerticalStackLayout>
         <VerticalStackLayout Grid.Row="1"
                              Spacing="20"
-                             VerticalOptions="Center">
+                             HorizontalOptions="Center">
             <Button
                 Text="Signin"
-                Clicked="GotoSigninPage"
-                HorizontalOptions="Center"/>
+                Clicked="GotoSigninPage"/>
             <Button
                 Text="Signup"
-                Clicked="GotoSignupPage"
-                HorizontalOptions="Center"/>
+                Clicked="GotoSignupPage"/>
         </VerticalStackLayout>
     </Grid>
 </ContentPage>
