@@ -1,4 +1,4 @@
-using IcecreamMAUI.Api;
+using IcecreamMAUI.Api.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 

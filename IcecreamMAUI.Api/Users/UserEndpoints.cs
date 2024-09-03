@@ -1,4 +1,5 @@
 using IcecreamMAUI.Api.Users.Services;
+using IcecreamMAUI.Api.Utils;
 using IcecreamMAUI.Shared.Models;
 
 namespace IcecreamMAUI.Api.Users;

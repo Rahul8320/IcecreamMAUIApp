@@ -4,7 +4,7 @@ using IcecreamMAUI.Api.Users.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 
-namespace IcecreamMAUI.Api;
+namespace IcecreamMAUI.Api.Utils;
 
 public static class ApiExtensions
 {

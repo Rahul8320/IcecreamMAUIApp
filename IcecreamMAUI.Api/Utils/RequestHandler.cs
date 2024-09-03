@@ -1,6 +1,6 @@
 using IcecreamMAUI.Shared.Models;
 
-namespace IcecreamMAUI.Api;
+namespace IcecreamMAUI.Api.Utils;
 
 public class RequestHandler
 {
