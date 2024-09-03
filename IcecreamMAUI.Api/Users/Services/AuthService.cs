@@ -13,21 +13,28 @@ public class AuthService(
 {
     public async Task<ServiceResult<AuthResult>> SignInAsync(SignInRequest request, CancellationToken cancellationToken = default)
     {
-        var user = await GetUserByEmail(request.Email, cancellationToken);
-
-        if (user is null)
+        try
         {
-            return ServiceResult<AuthResult>.Failure("User not found");
+            var user = await GetUserByEmail(request.Email, cancellationToken);
+
+            if (user is null)
+            {
+                return ServiceResult<AuthResult>.NotFound("User not found");
+            }
+
+            bool isVerified = VerifyPassword(request.Password, user);
+
+            if (isVerified == false)
+            {
+                return ServiceResult<AuthResult>.BadRequest("Invalid Credentials");
+            }
+
+            return GenerateAuthResult(user);
         }
-
-        bool isVerified = VerifyPassword(request.Password, user);
-
-        if (isVerified == false)
+        catch (Exception ex)
         {
-            return ServiceResult<AuthResult>.Failure("Invalid Credentials");
+            return ServiceResult<AuthResult>.ServerError(ex.Message);
         }
-
-        return GenerateAuthResult(user);
     }
 
     public async Task<ServiceResult<AuthResult>> SignUpAsync(SignUpRequest request, CancellationToken cancellationToken = default)
@@ -38,7 +45,7 @@ public class AuthService(
 
             if (isEmailExists)
             {
-                return ServiceResult<AuthResult>.Failure("Email already exists");
+                return ServiceResult<AuthResult>.BadRequest("Email already exists");
             }
 
             PasswordDto passwordDto = passwordService.GenerateSaltAndHash(request.Password);
@@ -49,7 +56,7 @@ public class AuthService(
         }
         catch (Exception ex)
         {
-            return ServiceResult<AuthResult>.Failure(ex.Message);
+            return ServiceResult<AuthResult>.ServerError(ex.Message);
         }
     }
 

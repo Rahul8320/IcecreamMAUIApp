@@ -7,8 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddControllers();
-
 builder.Services.AddDatabaseContext(builder.Configuration);
 
 builder.Services.AddAuthenticationAndAuthorization(builder.Configuration);
@@ -33,6 +31,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapEndpoints();
 
 app.Run();
