@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using IcecreamMAUI.Shared.Models;
 using Microsoft.IdentityModel.Tokens;
 
 namespace IcecreamMAUI.Api.Users.Services;
@@ -18,34 +19,42 @@ public class TokenService(IConfiguration configuration) : ITokenService
             IssuerSigningKey = GetSymmetricSecurityKey(configuration),
         };
 
-    public string GenerateJWT(Guid userId, string userName, string email, string address)
+    public string GenerateJWT(UserDto user)
+    {
+        SymmetricSecurityKey securityKey = GetSymmetricSecurityKey(configuration);
+
+        SigningCredentials credentials = new(securityKey, SecurityAlgorithms.HmacSha256);
+
+        JwtSecurityToken token = CreateJwtSecurityToken(credentials, user);
+
+        return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    private JwtSecurityToken CreateJwtSecurityToken(SigningCredentials credentials, UserDto user)
     {
         string audience = configuration["JWT:Audience"]!;
         string issuer = configuration["JWT:Issuer"]!;
         int expiryInMinutes = Convert.ToInt32(configuration["JWT:ExpiryInMinutes"]!);
 
-        var securityKey = GetSymmetricSecurityKey(configuration);
+        Claim[] claims = CreateClaims(user);
 
-        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-        Claim[] claims = [
-            new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
-            new Claim(ClaimTypes.Name, userName),
-            new Claim(ClaimTypes.Email, email),
-            new Claim(ClaimTypes.StreetAddress, address),
-        ];
-
-        var token = new JwtSecurityToken(
+        return new JwtSecurityToken(
             issuer: issuer,
             audience: audience,
             claims: claims,
             expires: DateTime.Now.AddMinutes(expiryInMinutes),
             signingCredentials: credentials
         );
+    }
 
-        var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-
-        return jwt;
+    private static Claim[] CreateClaims(UserDto user)
+    {
+        return [
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Name, user.Name),
+            new Claim(ClaimTypes.Email, user.Email),
+            new Claim(ClaimTypes.StreetAddress, user.Address),
+        ];
     }
 
     private static SymmetricSecurityKey GetSymmetricSecurityKey(IConfiguration configuration)
@@ -57,5 +66,5 @@ public class TokenService(IConfiguration configuration) : ITokenService
 
 public interface ITokenService
 {
-    string GenerateJWT(Guid userId, string userName, string email, string address);
+    string GenerateJWT(UserDto user);
 }
