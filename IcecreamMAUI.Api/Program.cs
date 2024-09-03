@@ -1,4 +1,5 @@
 using IcecreamMAUI.Api.Utils;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDatabaseContext(builder.Configuration);
 
 builder.Services.AddAuthenticationAndAuthorization(builder.Configuration);
+
+builder.Services.AddValidatorsFromAssemblyContaining(typeof(IcecreamMAUI.Shared.AssemblyReference));
 
 builder.Services.AddApiServices();
 
