@@ -32,6 +32,7 @@ public static class ApiExtensions
     public static IServiceCollection AddApiServices(this IServiceCollection services)
     {
         services.AddTransient<ITokenService, TokenService>();
+        services.AddTransient<IPasswordService, PasswordService>();
 
         return services;
     }

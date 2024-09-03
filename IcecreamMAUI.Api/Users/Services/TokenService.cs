@@ -54,3 +54,8 @@ public class TokenService(IConfiguration configuration) : ITokenService
         return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
     }
 }
+
+public interface ITokenService
+{
+    string GenerateJWT(Guid userId, string userName, string email, string address);
+}
