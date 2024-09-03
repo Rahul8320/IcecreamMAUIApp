@@ -1,3 +1,7 @@
+using IcecreamMAUI.Api;
+using IcecreamMAUI.Api.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +11,15 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
 
+var databaseConnectionString = builder.Configuration.GetConnectionString("Default");
+builder.Services.AddDbContext<AppDbContext>(
+    option => option.UseSqlite(databaseConnectionString));
+
 var app = builder.Build();
+
+#if DEBUG
+ApiExtensions.MigrateDatabase(app.Services);
+#endif
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
