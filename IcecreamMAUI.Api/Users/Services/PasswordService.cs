@@ -19,10 +19,9 @@ public class PasswordService : IPasswordService
         }
 
         byte[] salt = RandomNumberGenerator.GetBytes(SaltSize);
-        byte[] hash = Rfc2898DeriveBytes.Pbkdf2(password, salt, Iterations, _algorithmName, HashSize);
+        byte[] hash = GetHashPassword(password, salt);
 
         string saltString = Convert.ToHexString(salt);
-
         string hashPassword = Convert.ToHexString(hash);
 
         return new PasswordDto
@@ -38,9 +37,14 @@ public class PasswordService : IPasswordService
         byte[] hash = Convert.FromHexString(passwordDto.HashPassword);
         byte[] salt = Convert.FromHexString(passwordDto.Salt);
 
-        byte[] inputHash = Rfc2898DeriveBytes.Pbkdf2(passwordDto.PlainPassword, salt, Iterations, _algorithmName, HashSize);
+        byte[] inputHash = GetHashPassword(passwordDto.PlainPassword, salt);
 
         return CryptographicOperations.FixedTimeEquals(hash, inputHash);
+    }
+
+    private byte[] GetHashPassword(string password, byte[] salt)
+    {
+        return Rfc2898DeriveBytes.Pbkdf2(password, salt, Iterations, _algorithmName, HashSize);
     }
 }
 
