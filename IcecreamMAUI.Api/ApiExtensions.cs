@@ -33,6 +33,7 @@ public static class ApiExtensions
     {
         services.AddTransient<ITokenService, TokenService>();
         services.AddTransient<IPasswordService, PasswordService>();
+        services.AddTransient<IAuthService, AuthService>();
 
         return services;
     }
