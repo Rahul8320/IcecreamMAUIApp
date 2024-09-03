@@ -11,13 +11,13 @@ public static class UserEndpoints
         app.MapPost(
             "api/signup",
             async (RequestHandler handler, SignUpRequest request, IAuthService service, CancellationToken cancellationToken)
-                => await handler.HandleRequest(() => service.SignUpAsync(request, cancellationToken))
+                => await handler.HandleRequest(request, async request => await service.SignUpAsync(request, cancellationToken))
             ).WithTags("Users");
 
         app.MapPost(
             "api/signin",
             async (RequestHandler handler, SignInRequest request, IAuthService service, CancellationToken cancellationToken)
-                => await handler.HandleRequest(() => service.SignInAsync(request, cancellationToken))
+                => await handler.HandleRequest(request, async request => await service.SignInAsync(request, cancellationToken))
             ).WithTags("Users");
     }
 }
