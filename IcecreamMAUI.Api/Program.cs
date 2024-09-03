@@ -1,6 +1,4 @@
 using IcecreamMAUI.Api;
-using IcecreamMAUI.Api.Data;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +9,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
 
-var databaseConnectionString = builder.Configuration.GetConnectionString("Default");
-builder.Services.AddDbContext<AppDbContext>(
-    option => option.UseSqlite(databaseConnectionString));
+builder.Services.AddDatabaseContext(builder.Configuration);
+
+builder.Services.AddAuthenticationAndAuthorization(builder.Configuration);
+
+builder.Services.AddApiServices();
 
 var app = builder.Build();
 
@@ -29,6 +29,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
