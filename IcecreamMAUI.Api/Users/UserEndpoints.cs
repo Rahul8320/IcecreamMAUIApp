@@ -9,13 +9,13 @@ public static class UserEndpoints
     public static void MapEndpoints(IEndpointRouteBuilder app)
     {
         app.MapPost(
-            "api/signup",
+            "/api/signup",
             async (RequestHandler handler, SignUpRequest request, IAuthService service, CancellationToken cancellationToken)
                 => await handler.HandleRequest(request, async request => await service.SignUpAsync(request, cancellationToken))
             ).WithTags("Users");
 
         app.MapPost(
-            "api/signin",
+            "/api/signin",
             async (RequestHandler handler, SignInRequest request, IAuthService service, CancellationToken cancellationToken)
                 => await handler.HandleRequest(request, async request => await service.SignInAsync(request, cancellationToken))
             ).WithTags("Users");
