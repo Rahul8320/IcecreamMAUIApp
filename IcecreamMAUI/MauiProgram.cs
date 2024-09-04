@@ -44,9 +44,13 @@ public static class MauiProgram
             {
                 return new AndroidMessageHandler
                 {
-                    ServerCertificateCustomValidationCallback = (HttpRequestMessage, ClientCertificateOption, HandlerChangingEventArgs, sslPolicyErrors) =>
+                    ServerCertificateCustomValidationCallback = (
+                    httpRequestMessage,
+                    certificate,
+                    chain,
+                    sslPolicyErrors) =>
                     {
-                        return ClientCertificateOption?.Issuer == "CN=localhost" || sslPolicyErrors == SslPolicyErrors.None;
+                        return certificate?.Issuer == "CN=localhost" || sslPolicyErrors == SslPolicyErrors.None;
                     }
                 };
             }

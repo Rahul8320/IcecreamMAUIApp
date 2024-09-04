@@ -1,5 +1,6 @@
 using System.Net;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using IcecreamMAUI.Pages;
 using IcecreamMAUI.Services;
 using IcecreamMAUI.Shared.Models;
@@ -24,6 +25,7 @@ public partial class AuthViewModel(IAuthApi authApi) : BaseViewModel
 
     public bool CanSignUp => CanSignIn && string.IsNullOrEmpty(Name) == false && string.IsNullOrEmpty(Address) == false;
 
+    [RelayCommand]
     private async Task SignupAsync()
     {
         IsBusy = true;
@@ -57,6 +59,7 @@ public partial class AuthViewModel(IAuthApi authApi) : BaseViewModel
         }
     }
 
+    [RelayCommand]
     private async Task SigninAsync()
     {
         IsBusy = true;
