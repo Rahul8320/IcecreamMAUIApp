@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Maui;
+using IcecreamMAUI.Pages;
 using IcecreamMAUI.Services;
+using IcecreamMAUI.ViewModels;
 using Microsoft.Extensions.Logging;
 using Refit;
 using System.Net.Security;
@@ -24,6 +26,10 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
+
+        builder.Services.AddTransient<AuthViewModel>()
+                        .AddTransient<SigninPage>()
+                        .AddTransient<SignupPage>();
 
         ConfigureRefit(builder.Services);
 
