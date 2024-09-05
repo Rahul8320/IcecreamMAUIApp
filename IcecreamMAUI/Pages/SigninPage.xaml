@@ -2,15 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IcecreamMAUI.Pages.SigninPage"
+             xmlns:vm="clr-namespace:IcecreamMAUI.ViewModels"
              Title="Signin"
+             x:DataType="vm:AuthViewModel"
              Shell.FlyoutBehavior="Disabled">
-    <VerticalStackLayout VerticalOptions="Center"
-            Spacing="10">
-        <Label
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"/>
-        <Button Text="Go To App"
-                Clicked="GoToApp"/>
-    </VerticalStackLayout>
+    <Grid>
+        <VerticalStackLayout VerticalOptions="Center"
+                         Padding="20"
+                         Spacing="20">
+            <Image Source="ice_cream"
+               HeightRequest="150"
+               WidthRequest="150"
+               Aspect="AspectFit"/>
+
+            <Label Text="New user? Signup"
+               FontSize="15"
+               FontAttributes="Bold"
+               TextColor="DeepPink">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="GotoSignupPage"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Entry Text="{Binding Email}"
+               Placeholder="Email"
+               Keyboard="Email"/>
+
+            <Entry Text="{Binding Password}"
+               Placeholder="Password"
+               IsPassword="True"/>
+
+            <Button Text="Signin"
+                IsEnabled="{Binding CanSignIn}"
+                Command="{Binding SigninCommand}"/>
+            
+        </VerticalStackLayout>
+        
+        <ActivityIndicator HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Color="DeepPink"
+                       IsRunning="{Binding IsBusy}"/>
+    </Grid>
 </ContentPage>

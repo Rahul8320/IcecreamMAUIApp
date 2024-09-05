@@ -7,10 +7,11 @@ public partial class SigninPage : ContentPage
 	public SigninPage(AuthViewModel authViewModel)
 	{
 		InitializeComponent();
+		BindingContext = authViewModel;
 	}
 
-	private async void GoToApp(object sender, EventArgs e)
+	private async void GotoSignupPage(object sender, TappedEventArgs e)
 	{
-		await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+		await Shell.Current.GoToAsync(nameof(SignupPage));
 	}
 }

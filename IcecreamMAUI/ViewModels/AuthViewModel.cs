@@ -40,11 +40,12 @@ public partial class AuthViewModel(IAuthApi authApi) : BaseViewModel
             var signupRequest = new SignUpRequest(Name: Name!, Email: Email!, Password: Password!, Address: Address!);
 
             // Make Api Call
-            var result = await authApi.SignUpAsync(signupRequest);
+            var result = await authApi.SignUpAsync(signupRequest, new CancellationToken());
 
             if (result.StatusCode == HttpStatusCode.OK)
             {
                 await RedirectToPage($"//{nameof(HomePage)}", animate: true);
+                return;
             }
 
             await ShowErrorAlert(result.ErrorMessage ?? result.ErrorMessages?[0] ?? "Something wrong happened!");
@@ -74,11 +75,12 @@ public partial class AuthViewModel(IAuthApi authApi) : BaseViewModel
             var signinRequest = new SignInRequest(Email: Email!, Password: Password!);
 
             // Make Api Call
-            var result = await authApi.SignInAsync(signinRequest);
+            var result = await authApi.SignInAsync(signinRequest, new CancellationToken());
 
             if (result.StatusCode == HttpStatusCode.OK)
             {
                 await RedirectToPage($"//{nameof(HomePage)}", animate: true);
+                return;
             }
 
             await ShowErrorAlert(result.ErrorMessage ?? result.ErrorMessages?[0] ?? "Something wrong happened!");

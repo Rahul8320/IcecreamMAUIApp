@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
     <ActiveDebugFramework>net8.0-android</ActiveDebugFramework>
-    <ActiveDebugProfile>Xiaomi Redmi Note 8 Pro (Android 11.0 - API 30)</ActiveDebugProfile>
+    <ActiveDebugProfile>Pixel_7_Pro_API_34 (Android 14.0 - API 34)</ActiveDebugProfile>
     <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
   </PropertyGroup>
   <ItemGroup>

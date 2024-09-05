@@ -40,5 +40,4 @@ public partial class AppShell : Shell
     {
         await Current.DisplayAlert("Alert", "You will be signout", "Ok");
     }
-
 }
