@@ -7,7 +7,7 @@ using IcecreamMAUI.Shared.Models;
 
 namespace IcecreamMAUI.ViewModels;
 
-public partial class AuthViewModel(IAuthApi authApi) : BaseViewModel
+public partial class AuthViewModel(IAuthApi authApi, AuthService authService) : BaseViewModel
 {
     [ObservableProperty, NotifyPropertyChangedFor(nameof(CanSignUp))]
     private string? _name;
@@ -44,6 +44,8 @@ public partial class AuthViewModel(IAuthApi authApi) : BaseViewModel
 
             if (result.StatusCode == HttpStatusCode.OK)
             {
+                authService.SignIn(result.Data!);
+
                 await RedirectToPage($"//{nameof(HomePage)}", animate: true);
                 return;
             }
@@ -79,6 +81,8 @@ public partial class AuthViewModel(IAuthApi authApi) : BaseViewModel
 
             if (result.StatusCode == HttpStatusCode.OK)
             {
+                authService.SignIn(result.Data!);
+
                 await RedirectToPage($"//{nameof(HomePage)}", animate: true);
                 return;
             }

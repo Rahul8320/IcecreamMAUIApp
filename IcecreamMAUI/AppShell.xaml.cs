@@ -1,4 +1,5 @@
 ﻿using IcecreamMAUI.Pages;
+using IcecreamMAUI.Services;
 
 namespace IcecreamMAUI;
 
@@ -13,11 +14,14 @@ public partial class AppShell : Shell
             typeof(OrderDetailsPage)
        ];
 
-    public AppShell()
+    private readonly AuthService _authService;
+
+    public AppShell(AuthService authService)
     {
         InitializeComponent();
 
         RegisterRoutes();
+        _authService = authService;
     }
 
     private static void RegisterRoutes()
@@ -38,6 +42,7 @@ public partial class AppShell : Shell
 
     private async void Signout(object sender, EventArgs e)
     {
-        await Current.DisplayAlert("Alert", "You will be signout", "Ok");
+        _authService.SignOut();
+        await Current.GoToAsync($"//{nameof(OnboardingPage)}");
     }
 }
