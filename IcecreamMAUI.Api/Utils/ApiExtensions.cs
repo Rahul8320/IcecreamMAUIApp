@@ -1,4 +1,6 @@
 using IcecreamMAUI.Api.Data;
+using IcecreamMAUI.Api.IceCreams;
+using IcecreamMAUI.Api.IceCreams.Services;
 using IcecreamMAUI.Api.Users;
 using IcecreamMAUI.Api.Users.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -22,6 +24,7 @@ public static class ApiExtensions
         services.AddTransient<ITokenService, TokenService>();
         services.AddTransient<IPasswordService, PasswordService>();
         services.AddTransient<IAuthService, AuthService>();
+        services.AddTransient<IIceCreamService, IceCreamService>();
 
         services.AddTransient<RequestHandler>();
 
@@ -60,6 +63,7 @@ public static class ApiExtensions
     public static IEndpointRouteBuilder MapEndpoints(this IEndpointRouteBuilder builder)
     {
         UserEndpoints.MapEndpoints(builder);
+        IceCreamEndpoints.MapEndpoints(builder);
 
         return builder;
     }
