@@ -6,7 +6,7 @@ public record ServiceResult(HttpStatusCode StatusCode, string? ErrorMessage, Lis
 {
     public static ServiceResult Success()
         => new(HttpStatusCode.OK, null, null);
-    public static ServiceResult BadRequest(string? errorMessage, List<string>? errorMessages = null)
+    public static ServiceResult BadRequest(string? errorMessage = null, List<string>? errorMessages = null)
         => new(HttpStatusCode.BadRequest, errorMessage, errorMessages);
 
     public static ServiceResult NotFound(string errorMessage)
@@ -24,7 +24,7 @@ public record ServiceResult<T>(HttpStatusCode StatusCode, T? Data, string? Error
     public static ServiceResult<T> Success(T data)
         => new(HttpStatusCode.OK, data, null, null);
 
-    public static ServiceResult<T> BadRequest(string? errorMessage, List<string>? errorMessages = null)
+    public static ServiceResult<T> BadRequest(string? errorMessage = null, List<string>? errorMessages = null)
         => new(HttpStatusCode.BadRequest, default, errorMessage, errorMessages);
 
     public static ServiceResult<T> NotFound(string errorMessage)

@@ -1,4 +1,5 @@
 using IcecreamMAUI.Api.Users.Services;
+using IcecreamMAUI.Api.Users.UseCases;
 using IcecreamMAUI.Api.Utils;
 using IcecreamMAUI.Shared.Models;
 
@@ -8,16 +9,8 @@ public static class UserEndpoints
 {
     public static void MapEndpoints(IEndpointRouteBuilder app)
     {
-        app.MapPost(
-            "/api/signup",
-            async (RequestHandler handler, SignUpRequest request, IAuthService service, CancellationToken cancellationToken)
-                => await handler.HandleRequest(request, async request => await service.SignUpAsync(request, cancellationToken))
-            ).WithTags("Users");
+        app.MapPost( "/api/signup", RegisterUser.Handler ).WithTags("Users");
 
-        app.MapPost(
-            "/api/signin",
-            async (RequestHandler handler, SignInRequest request, IAuthService service, CancellationToken cancellationToken)
-                => await handler.HandleRequest(request, async request => await service.SignInAsync(request, cancellationToken))
-            ).WithTags("Users");
+        app.MapPost( "/api/signin", LoginUser.Handler ).WithTags("Users");
     }
 }
