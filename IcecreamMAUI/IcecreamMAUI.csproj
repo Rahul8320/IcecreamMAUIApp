@@ -73,7 +73,6 @@
 	  <Folder Include="Components\" />
 	  <Folder Include="Data\" />
 	  <Folder Include="Models\" />
-	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 	<ItemGroup>

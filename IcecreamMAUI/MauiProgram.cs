@@ -60,12 +60,14 @@ public static class MauiProgram
             }
         };
 
-        services.AddRefitClient<IAuthApi>(refitSetting)
-            .ConfigureHttpClient(httpClient =>
-            {
-                var baseUrl = DeviceInfo.Platform == DevicePlatform.Android ? "https://10.0.2.2:7213" : "https://localhost:7213";
+        services.AddRefitClient<IAuthApi>(refitSetting).ConfigureHttpClient(SetHttpClient);
+        services.AddRefitClient<IIceCreamsApi>(refitSetting).ConfigureHttpClient(SetHttpClient);
+    }
 
-                httpClient.BaseAddress = new Uri(baseUrl);
-            });
+    private static void SetHttpClient(HttpClient httpClient) 
+    {
+        var baseUrl = DeviceInfo.Platform == DevicePlatform.Android ? "https://10.0.2.2:7213" : "https://localhost:7213";
+
+        httpClient.BaseAddress = new Uri(baseUrl);
     }
 }
