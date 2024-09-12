@@ -28,70 +28,70 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
                Id = 1,
                Name = "Chocolate Delight",
                Price = 415.17,
-               Image = "https://images.unsplash.com/photo-1563805042-7684f0e6dff5"
+               Image = "https://images.unsplash.com/photo-1607920591413-4ec007e70023?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
            },
            new IceCream
            {
                Id = 2,
                Name = "Vanilla Dream",
                Price = 331.17,
-               Image = "https://images.unsplash.com/photo-1566843962435-4e5d2c802b4d"
+               Image = "https://plus.unsplash.com/premium_photo-1690440686714-c06a56a1511c?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
            },
            new IceCream
            {
                Id = 3,
                Name = "Strawberry Swirl",
                Price = 372.67,
-               Image = "https://images.unsplash.com/photo-1627308595229-7830a5c91f9f"
+               Image = "https://images.unsplash.com/photo-1532678465554-94846274c297?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
            },
            new IceCream
            {
                Id = 4,
                Name = "Minty Fresh",
                Price = 357.07,
-               Image = "https://images.unsplash.com/photo-1589342156669-5c021c8b3fa1"
+               Image = "https://plus.unsplash.com/premium_photo-1678198786424-c2cc6593f59c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
            },
            new IceCream
            {
                Id = 5,
                Name = "Coffee Buzz",
                Price = 397.57,
-               Image = "https://images.unsplash.com/photo-1580252737439-c75d799aeb95"
+               Image = "https://images.unsplash.com/photo-1576506295286-5cda18df43e7?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
            },
            new IceCream
            {
                Id = 6,
                Name = "Caramel Craze",
                Price = 438.07,
-               Image = "https://images.unsplash.com/photo-1592993470962-7b8fdde9d946"
+               Image = "https://images.unsplash.com/photo-1570197788417-0e82375c9371?q=80&w=1912&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
            },
            new IceCream
            {
                Id = 7,
                Name = "Peanut Butter Blast",
                Price = 415.17,
-               Image = "https://images.unsplash.com/photo-1600788649894-40c8b072dc2f"
+               Image = "https://images.unsplash.com/photo-1560008581-09826d1de69e?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
            },
            new IceCream
            {
                Id = 8,
                Name = "Cookies and Cream",
                Price = 372.67,
-               Image = "https://images.unsplash.com/photo-1591461440144-bb4bb2b1b07a"
+               Image = "https://images.unsplash.com/photo-1580915411954-282cb1b0d780?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
            },
            new IceCream
            {
                Id = 9,
                Name = "Lemon Zest",
                Price = 381.77,
-               Image = "https://images.unsplash.com/photo-1600891965057-3ffadbe7a3c2"
+               Image = "https://images.unsplash.com/photo-1534706936160-d5ee67737249?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
            },
            new IceCream
            {
                Id = 10,
                Name = "Raspberry Ripple",
                Price = 397.57,
-               Image = "https://images.unsplash.com/photo-1589187150010-3ccf387ef6d4"
+               Image = "https://plus.unsplash.com/premium_photo-1670574528579-c7eec79d7b7c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
            }
        );
 
