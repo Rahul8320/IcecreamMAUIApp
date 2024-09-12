@@ -5,15 +5,20 @@ using System.Net;
 
 namespace IcecreamMAUI.ViewModels;
 
-public partial class HomeViewModel(IIceCreamsApi iceCreamsApi) : BaseViewModel
+public partial class HomeViewModel(IIceCreamsApi iceCreamsApi, AuthService authService) : BaseViewModel
 {
     [ObservableProperty]
     private IceCreamDto[] _iceCreams = [];
+
+    [ObservableProperty]
+    private string _userName = string.Empty;
 
     private bool _isInitialized;
 
     public async Task InitializeAsync()
     {
+        UserName = authService.User!.Name;
+
         if (_isInitialized)
         {
             return;
